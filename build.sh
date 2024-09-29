@@ -9,21 +9,14 @@ RELEASE="$(rpm -E %fedora)"
 # Not installed by default on ucore
 rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
+### Install latest rclone to get Proton support
+
+rpm-ostree install https://downloads.rclone.org/rclone-current-linux-amd64.rpm
+
 ### Install packages
 
-# Packages can be installed from any enabled yum repo on the image.
-# RPMfusion repos are available by default in ublue main images
-# List of rpmfusion packages can be found here:
-# https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
-
-# this installs a package from fedora repos
-# rpm-ostree install screen
-
-# this would install a package from rpmfusion
-# rpm-ostree install vlc
 rpm-ostree install intel-media-driver \
-    libva libva-utils
+    libva libva-utils \
+    /tmp/rclone.rpm
 
-#### Example for enabling a System Unit File
-
-systemctl enable podman.socket
+### Replace rclone for Proton Drive support
