@@ -21,7 +21,8 @@ rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-rele
 
 # this would install a package from rpmfusion
 # rpm-ostree install vlc
-rpm-ostree install intel-media-driver
+rpm-ostree install intel-media-driver \
+    libva libva-utils
 
 #### Example for enabling a System Unit File
 
