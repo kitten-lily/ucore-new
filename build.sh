@@ -11,12 +11,11 @@ rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-rele
 
 ### Install latest rclone to get Proton support
 
-rpm-ostree install https://downloads.rclone.org/rclone-current-linux-amd64.rpm
+rpm-ostree override replace https://downloads.rclone.org/rclone-current-linux-amd64.rpm
 
 ### Install packages
 
 rpm-ostree install intel-media-driver \
-    libva libva-utils \
-    /tmp/rclone.rpm
+    libva libva-utils
 
 ### Replace rclone for Proton Drive support
