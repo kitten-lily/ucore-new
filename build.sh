@@ -5,7 +5,6 @@ set -ouex pipefail
 RELEASE="$(rpm -E %fedora)"
 
 ### Add rpmfusion
-
 # Not installed by default on ucore
 rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
@@ -14,8 +13,12 @@ rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-rele
 rpm-ostree override replace https://downloads.rclone.org/rclone-current-linux-amd64.rpm
 
 ### Install packages
-
 rpm-ostree install intel-media-driver \
-    libva libva-utils
+    libva libva-utils \
+    fish
 
-### Replace rclone for Proton Drive support
+### Add Starship
+# Starship Shell Prompt
+curl -Lo /tmp/starship.tar.gz "https://github.com/starship/starship/releases/latest/download/starship-x86_64-unknown-linux-gnu.tar.gz"
+tar -xzf /tmp/starship.tar.gz -C /tmp
+install -c -m 0755 /tmp/starship /usr/bin
