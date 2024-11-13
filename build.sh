@@ -8,11 +8,7 @@ RELEASE="$(rpm -E %fedora)"
 # Not installed by default on ucore
 rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$RELEASE.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$RELEASE.noarch.rpm
 
-### Add fish repo
-curl -Lo /etc/yum.repos.d/fish.repo https://download.opensuse.org/repositories/shells:fish/Fedora_$RELEASE/shells:fish.repo
-
 ### Install latest rclone to get Proton support
-
 rpm-ostree override replace https://downloads.rclone.org/rclone-current-linux-amd64.rpm
 
 ### Install packages
