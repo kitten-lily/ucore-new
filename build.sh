@@ -15,6 +15,7 @@ rpm-ostree override replace https://downloads.rclone.org/rclone-current-linux-am
 rpm-ostree install intel-media-driver \
     libva libva-utils \
     fish \
+    rust-nu \
     bat eza fd-find fzf gh micro ripgrep zoxide
 
 ### Add Starship
