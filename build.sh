@@ -16,7 +16,7 @@ rpm-ostree install intel-media-driver \
     libva libva-utils \
     fish \
     nu \
-    bat eza fd-find fzf gh micro ripgrep zoxide
+    bat eza fd-find fzf gh gitui micro ripgrep zoxide
 
 ### Add Starship
 # Starship Shell Prompt
